@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-segment [(ngModel)]="homepage">
+        <ion-segment-button value="login">
+          Login
+        </ion-segment-button>
+        <ion-segment-button value="registration">
+          Registration
+        </ion-segment-button>
+      </ion-segment>
+</ion-header>
+
+<ion-content>      
+      <div [ngSwitch]="homepage" padding>
+          <div *ngSwitchCase="'login'" id="Login">
+              <ion-list>                  
+                    <ion-item>
+                      <ion-label floating>Username</ion-label>
+                      <ion-input type="text"></ion-input>
+                    </ion-item>                  
+                    <ion-item>
+                      <ion-label floating>Password</ion-label>
+                      <ion-input type="password"></ion-input>
+                    </ion-item>                  
+                  </ion-list>
+                  
+                  <div padding>
+                      <button ion-button color="primary" block>Sign In</button>
+                    </div>
+          </div>
+          <div id="Registration" *ngSwitchCase="'registration'">
+              <ion-list>                  
+                  <ion-item>
+                    <ion-label floating>Username</ion-label>
+                    <ion-input type="text" id="reg_username" [(ngModel)]="userName"></ion-input>
+                     
+                  </ion-item> 
+                  <span *ngIf="userNameError!=''">
+                      <div class="error">{{userNameError}}</div>  
+                  </span>                                
+                  <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input type="password" id="reg_password" [(ngModel)]="password"></ion-input>
+                  </ion-item>
+                  <span *ngIf="passwordError!=''">
+                      <div class="error">{{passwordError}}</div>  
+                  </span>
+                  <ion-item>
+                      <ion-label floating>Mobile Number</ion-label>
+                      <ion-input type="mobnumber" id="reg_mobilenumber" [(ngModel)]="mobileNumber"></ion-input>
+                    </ion-item>
+                    <span *ngIf="mobileNumberError!=''">
+                        <div class="error">{{mobileNumberError}}</div>  
+                    </span>
+                    <ion-item>
+                        <ion-label floating>Email ID</ion-label>
+                        <ion-input type="email" id="reg_emailid" [(ngModel)]="emailID"></ion-input>
+                      </ion-item>    
+                      <span *ngIf="emailIDError!=''">
+                          <div class="error">{{emailIDError}}</div>  
+                      </span>              
+                </ion-list>
+                
+                <div padding>
+                    <button color="primary" (click)="CreateAccount()" ion-button  block>Create Account</button>
+                  </div>
+          </div>
+        
+      </div>
+</ion-content>
