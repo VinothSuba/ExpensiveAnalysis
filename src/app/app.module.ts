@@ -27,8 +27,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     MyApp,
     AboutPage,
     ContactPage,
-    HomePage,
-    TabsPage,
+    HomePage, 
     LoginPage,
     RegisterPage,
     ExpensePage
@@ -41,14 +40,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
+  entryComponents: [ 
     LoginPage,
-    RegisterPage,
-    TabsPage,
     ExpensePage
   ],
   providers: [

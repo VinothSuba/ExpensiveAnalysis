@@ -11,14 +11,14 @@ import { LoginPage } from '../login/login';
 })
 export class TabsPage {
 
-  tab1Root = ExpensePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
-  tab4Root = HomePage;
+  // tab1Root = ExpensePage;
+  // tab2Root = AboutPage;
+  // tab3Root = ContactPage;
+  // tab4Root = HomePage;
 
   constructor(public navCtrl: NavController) {
     if (!localStorage.getItem("token")) {
-      navCtrl.setRoot(LoginPage);
+      navCtrl.setRoot(ExpensePage);
     }
   }
 }

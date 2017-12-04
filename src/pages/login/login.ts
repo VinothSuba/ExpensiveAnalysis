@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, ToastController } from 'ionic-angular';
 import { AuthService } from '../../providers/authservice';
-import { TabsPage } from '../tabs/tabs';
+import { ExpensePage } from '../expense/expense';
 import { RegisterPage } from '../register/register';
 import { LoginUserDTO } from '../../providers/domainobjects';
 
@@ -9,22 +9,22 @@ import { LoginUserDTO } from '../../providers/domainobjects';
   selector: 'page-login',
   templateUrl: 'login.html'
 })
-export class LoginPage {
+export class LoginPage implements OnInit{
 
   loading: any;
   loginData:LoginUserDTO;
   data: any;
 
-  constructor(public navCtrl: NavController, public authService: AuthService, public loadingCtrl: LoadingController, private toastCtrl: ToastController) {
-          this.loginData=new LoginUserDTO("","");
+  constructor(private navCtrl: NavController, public authService: AuthService, public loadingCtrl: LoadingController, private toastCtrl: ToastController) {
+          this.loginData=new LoginUserDTO("","");         
   }
   doLogin() {
     this.showLoader();
     this.authService.login(this.loginData).then((result) => {
       this.loading.dismiss();
       this.data = result;
-      localStorage.setItem('token', this.data.access_token);
-      this.navCtrl.setRoot(TabsPage);
+      localStorage.setItem('token', JSON.stringify(this.data));
+      this.navCtrl.setRoot(ExpensePage);
     }, (err) => {
       this.loading.dismiss();
       this.presentToast(err);
@@ -58,4 +58,9 @@ export class LoginPage {
     toast.present();
   }
 
+  ngOnInit(){
+    if (localStorage.getItem("token")) {
+      this.navCtrl.setRoot(ExpensePage);
+    }
+  }
 }

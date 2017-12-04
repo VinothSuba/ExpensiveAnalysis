@@ -5,6 +5,8 @@ import { DataService } from '../../providers/onlineservice';
 import { Expensive } from '../../providers/domainobjects';
 import { Observable } from 'rxjs/Observable';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import {LoginPage} from '../login/login';
+import {TabsPage} from'../tabs/tabs';
 @Component({
   selector: 'page-expense',
   templateUrl: 'expense.html' 
@@ -33,6 +35,12 @@ export class ExpensePage implements OnInit {
 
   createColumn(args:object):void{     
  }
+
+ logOut(){
+  localStorage.removeItem("token");
+  this.navCtrl.setRoot(LoginPage);
+ }
+
  ngOnInit(): void {
   this.authService.getExpensiveDataList().then( 
     expenseData => this.expenseData=expenseData
