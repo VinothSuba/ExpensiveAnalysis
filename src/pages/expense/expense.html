@@ -1,0 +1,9 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Expense</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ng2-smart-table [settings]="settings" [source]="expenseData" (mouseover)="createColumn()"></ng2-smart-table>    
+</ion-content>
