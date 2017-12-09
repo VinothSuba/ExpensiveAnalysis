@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Configuration } from './serverconfig';
 import { User } from './domainobjects';
 import 'rxjs/add/operator/map';
@@ -27,13 +27,16 @@ export class AuthService {
   }
 
   register(data) {
-    return new Promise((resolve, reject) => {
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        this.http.post(this.serverConfig+'guest/signup', JSON.stringify(data), {headers: headers})
+    return new Promise((resolve, reject) => {       
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        this.http.post(this.serverConfig.PostUserUrl, data, options)
           .subscribe(res => {
-            resolve(res.json());
+            let responseData:any;
+            if(res && res.status==200){           
+              responseData=res.json() as User;
+            }
+            resolve(responseData);
           }, (err) => {
             reject(err);
           });

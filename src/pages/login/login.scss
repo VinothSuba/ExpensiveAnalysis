@@ -1,14 +1,39 @@
 page-login {
- .login-content {
+
+  .scroll-content{
+    display: flex;
+    align-items: center !important;
+    background-image: url('/assets/imgs/BackgroundImage.png')
+  }
+  .container{
+   width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center !important;
+    .login-card
+    {
+     @media only screen and (min-width:768px){
+       
+         width: 450px;
+        }
+        @media only screen and (min-width:1024px){
+         
+           width: 650px;
+          }
+    }
+    .transparent-btn
+    {
+      background: transparent;
+      color:blue; 
+      box-shadow: none;   
+    }
+  }
+
+  .login-content {
     background: #56CA96;
  
-    .logo-row {
-      padding-top: 50px;
-      padding-bottom: 20px;
-    }
- 
     .login-box {
-      background: #399F8B;
+      background: #509287;
       padding: 20px 20px 0px 20px;
       margin-top: 30px;
     }
@@ -43,11 +68,47 @@ page-login {
        border-radius: 30px !important;
        border: 1px solid #ffffff;
      }
- 
-     .register-btn {
-       color: #ffffff;
-       font-size: 0.8em;
+     .ListItem{
+       border-bottom-style: dashed; 
+      border-bottom-color: #ffffff !important;
      }
+     
   }
- 
+
+  .keepmesignin{
+    .item-inner{
+      border-bottom: none !important;
+    }
+  }
+  .error{
+    color: red;
+    padding-left: 15px;
+   }
+   .form-class
+   {
+     background: lightgrey;
+   }
+   .login-card
+   {
+     margin-top:40px;
+     border-radius: 5%;
+   }
+  
+   ion-avatar img
+   {
+     width:150px;
+     @media only screen and (min-width:768px){  
+      width: 250px;
+     }
+     @media only screen and (min-width:1024px){
+      
+        width: 400px;
+       }
+   }
+
 }
+
+
+
+ 
+ 

@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
+import { ReportsPage } from '../reports/report';
+import { SummaryPage } from '../summary/summary';
 import { ExpensePage } from '../expense/expense';
 import { HomePage } from '../home/home';
-import { LoginPage } from '../login/login';
 
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  // tab1Root = ExpensePage;
-  // tab2Root = AboutPage;
-  // tab3Root = ContactPage;
-  // tab4Root = HomePage;
+  tab1Root : any = ExpensePage;
+  tab2Root : any  = ReportsPage;
+  tab3Root : any = SummaryPage;
 
   constructor(public navCtrl: NavController) {
     if (!localStorage.getItem("token")) {

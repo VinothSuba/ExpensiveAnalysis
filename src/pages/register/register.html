@@ -1,35 +1,50 @@
-  <ion-header>
-    <ion-navbar color="dark">
-      <ion-title>Register</ion-title>
-    </ion-navbar>
-  </ion-header>
-   
-  <ion-content class="login-content" padding>
-    <div class="login-box">
-      
-      <form (ngSubmit)="doSignup()" #registerForm="ngForm">
-        <ion-row>
-          <ion-col>
-            <ion-list inset>
-              
-              <ion-item>
-                <ion-label stacked>Username</ion-label>
-                <ion-input [(ngModel)]="regData.username" name="username" type="text" placeholder="Your username" ></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label stacked>Password</ion-label>
-                <ion-input [(ngModel)]="regData.password" name="password" type="password" placeholder="Your password"></ion-input>
-              </ion-item>           
-            </ion-list>
-          </ion-col>
-        </ion-row>
-        
-        <ion-row>
-          <ion-col class="signup-col">
-            <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
-          </ion-col>
-        </ion-row>
-        
-      </form>
+<ion-content>
+  <ion-card>
+    <ion-row class="avatar-row">
+    <div class="ion-header">        
+      <ion-avatar item-center>
+         <img src="./assets/imgs/Avatar.png" class="login-logo">
+      </ion-avatar>
     </div>
-  </ion-content>
+  </ion-row>
+  <ion-row class="form-row">
+    <ion-list>                  
+        <ion-item>        
+            <ion-icon name="person" item-start></ion-icon>
+          <ion-input type="text" placeholder="Enter your user id" id="reg_userid" [(ngModel)]="registrationData.user_name"></ion-input>           
+        </ion-item> 
+        <span *ngIf="registrationData.user_name!=''">
+            <div class="error">{{userNameError}}</div>  
+        </span>     
+        <ion-item>        
+            <ion-icon name="person" item-start></ion-icon>
+          <ion-input type="text" placeholder="Enter your user name" id="reg_username" [(ngModel)]="registrationData.name"></ion-input>           
+        </ion-item>                            
+        <ion-item>
+            <ion-icon name="lock" item-start></ion-icon>
+          <ion-input type="password" placeholder="Enter password" id="reg_password" [(ngModel)]="registrationData.password"></ion-input>
+        </ion-item>
+        <span *ngIf="registrationData.password!=''">
+            <div class="error">{{passwordError}}</div>  
+        </span>
+        <ion-item>
+            <ion-icon name="phone-portrait" item-start></ion-icon>
+            <ion-input type="mobnumber" placeholder="Enter your mobile number" id="reg_mobilenumber" [(ngModel)]="registrationData.phone_number"></ion-input>
+          </ion-item>
+          <span *ngIf="mobileNumberError!=''">
+              <div class="error">{{mobileNumberError}}</div>  
+          </span>
+          <ion-item>
+              <ion-icon name="mail" item-start></ion-icon>
+              <ion-input type="email" placeholder="Enter your mail id" id="reg_emailid" [(ngModel)]="registrationData.email"></ion-input>
+            </ion-item>    
+            <span *ngIf="emailIDError!=''">
+                <div class="error">{{emailIDError}}</div>  
+            </span>              
+            <ion-item>
+                <button color="primary" (click)="CreateAccount()" ion-button  block>Create Account</button>
+            </ion-item>
+      </ion-list>      
+    </ion-row>
+    </ion-card>
+</ion-content>

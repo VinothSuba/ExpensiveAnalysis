@@ -5,5 +5,6 @@ export class Configuration {
     public Server = 'http://192.168.1.9/';
     public ApiUrl = 'v1/';
     public ServerWithApiUrl = this.Server + this.ApiUrl;
-    public GetUserUrl = this.ServerWithApiUrl +"getuser";
+    public GetUserUrl = this.ServerWithApiUrl + "getuser";
+    public PostUserUrl = this.ServerWithApiUrl + "registeruser";
 }

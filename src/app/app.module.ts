@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { ReportsPage } from '../pages/reports/report';
+import { SummaryPage } from '../pages/summary/summary';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ExpensePage } from '../pages/expense/expense';
@@ -21,16 +21,18 @@ import { AuthService } from '../providers/authservice';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { Tabs } from 'ionic-angular/components/tabs/tabs';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    ReportsPage,
+    SummaryPage,
     HomePage, 
     LoginPage,
     RegisterPage,
-    ExpensePage
+    ExpensePage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,12 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
   bootstrap: [IonicApp],
   entryComponents: [ 
     LoginPage,
-    ExpensePage
+    HomePage,
+    ExpensePage,
+    ReportsPage,
+    SummaryPage,
+    TabsPage,
+    RegisterPage
   ],
   providers: [
     Configuration,

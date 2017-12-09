@@ -1,4 +1,10 @@
 page-register {
+
+  .scroll-content{
+    display: flex;
+    align-items: center !important;
+    background-image: url('/assets/imgs/BackgroundImage.png')
+  }
     .login-content {
       background: #56CA96;
    
@@ -39,4 +45,55 @@ page-register {
          border: 1px solid #ffffff;
        }
     }
+
+    .error{
+      color: red;
+      padding-left: 15px;
+     }
+     .form-class
+     {
+       background: lightgrey;
+     }
+     .login-card
+     {
+       margin-top:40px;
+       border-radius: 5%;
+     }
+    
+     ion-avatar img
+     {
+       width:150px;
+       @media only screen and (min-width:768px){  
+        width: 250px;
+       }
+       @media only screen and (min-width:1024px){
+        
+          width: 400px;
+         }
+     }
+
+     .wrapper
+     {
+       width:150px;
+       height:150px;
+       margin: 25px auto;
+       overflow: hidden;
+       border-radius:50%;
+       position: relative;
+       background: Red;
+       @media only screen and (min-width: 768px)
+       {
+         width:250px;
+         height:250px;
+       }
+     }
+     .form-row
+     {
+       justify-content: center;
+     }
+     .avatar-row
+     {
+       justify-content: center;
+     }
   }
+ 
